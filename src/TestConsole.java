@@ -5,7 +5,7 @@ public class TestConsole {
 //        String name = "codeup";
 //        System.out.printf("Hello there, %s. Nice to see you.%n", name);
         String greeting = "Salutations";
-        String name = "codeup";
+        String name = "codeup\n";
         System.out.printf("%s,%n %s!", greeting, name);
 
         Scanner scanner = new Scanner(System.in);
