@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class MethodsExercises {
     public static void main(String[] args){
@@ -14,9 +15,11 @@ public class MethodsExercises {
         //NAN if mod  zero
 //        System.out.println("The valid number is: "+ getInteger(1,10));
 //        factorial();
-        int breakNum = factorialBreakingPoint(1);
-        System.out.println("Breaking point is: " + breakNum);
-
+//        int breakNum = factorialBreakingPoint(1);
+//        System.out.println("Breaking point is: " + breakNum);
+//        getInteger(1, 10);
+//        factorial();
+        rollDice();
 
 
     }
@@ -80,7 +83,7 @@ public class MethodsExercises {
 //3 factorial
     public static long factorial(){
         try{
-            long num = getInteger(1,30);
+            long num = getInteger(1,factorialBreakingPoint(9));
             long product = 1;
             long sum = 1;
             for(int i = 1; i <= num; i++){
@@ -106,25 +109,41 @@ public class MethodsExercises {
         try {
             for(int i = 1; i <= n; i++){
                 longie = 1;
-                System.out.print("\n" + i+ "! ="  );
+//                System.out.print("\n" + i+ "! ="  );
                 for(int j = 1; j <= i; j++){
                     longie *= j;
-                    System.out.print(" " + (j));
+//                    System.out.print(" " + (j));
                     if(longie <= 0){
-                        System.out.println("Broke at:" + i);
+//                        System.out.println("Broke at:" + i);
                         breakNum = i;
-                        return i;
+                        return i-1;
                     }
                 }
-                System.out.print(" = " + longie);
+//                System.out.print(" = " + longie);
             }
             return factorialBreakingPoint(n+1);
 
         } catch (NumberFormatException e){
-            System.out.print("Bad " + longie);
+//            System.out.print("Bad " + longie);
             return -1;
         }
     }
+
+    // 4 dice game
+
+    public static void rollDice(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter how many sides for the dice.");
+        int limit = getInteger(1, 2147483647);
+        System.out.println("You've chosen a dice with: " + limit + " sides.");
+        Random rand = new Random();
+        int diceNumber  = (int)Math.floor(Math.random()*(limit-1+1)+1);
+        int diceNumber2  = (int)Math.floor(Math.random()*(limit-1+1)+1);
+        System.out.println("Dice 1 You rolled a: " + diceNumber);
+        System.out.println("Dice 2: You rolled a: " + diceNumber2);
+    }
+
+    // 5 Game Development 101
 
 
 
