@@ -12,7 +12,11 @@ public class MethodsExercises {
 //        //infinity if divide by zero
 //        System.out.println(modNumbers(11, 2));
         //NAN if mod  zero
-        System.out.println("The valid number is: "+ getInteger(1,10));
+//        System.out.println("The valid number is: "+ getInteger(1,10));
+//        factorial();
+        int breakNum = factorialBreakingPoint(1);
+        System.out.println("Breaking point is: " + breakNum);
+
 
 
     }
@@ -54,22 +58,81 @@ public class MethodsExercises {
     public static double modNumbers(double x, double y){
         return x%y;
     }
-
-    public static int getInteger(int min, int max){
-       int validInt = 0;
-       System.out.print("Enter a number between "+  min + " and " + max + ": ");
+//2
+    public static int getInteger(int min, int max) {
+        int validInt = 0;
+        System.out.print("Enter a number between " + min + " and " + max + ": ");
         Scanner scanner = new Scanner(System.in);
-           int numInput = scanner.nextInt();
-             validInt = numInput;
-            scanner.close();
+        if (scanner.hasNextInt()) {
+            validInt = scanner.nextInt();
+            System.out.println(validInt);
+            if (validInt >= min && validInt <= max) {
+                return validInt;
+            } else {
+                System.out.println("Invalid input beyond range!");
+                return getInteger(min, max);
+            }
+        } else {
+            System.out.println("Invalid input type!");
+            return getInteger(min, max);
+        }
+    }
+//3 factorial
+    public static long factorial(){
+        try{
+            long num = getInteger(1,30);
+            long product = 1;
+            long sum = 1;
+            for(int i = 1; i <= num; i++){
+                sum = 1;
+                System.out.print("\n" + i+ "! ="  );
+                for(int j = 1; j <= i; j++){
+                    sum *= j;
+                    System.out.print(" " + (j));
+                }
+                System.out.print(" = " + sum);
+            }
+            return product;
+        } catch(NumberFormatException e){
+            System.out.println("Too big!!: " + e );
+            return -1;
+        }
+
+    }
+
+    public static int factorialBreakingPoint(int n){
+        long longie = 0;
+        int breakNum = 0;
+        try {
+            for(int i = 1; i <= n; i++){
+                longie = 1;
+                System.out.print("\n" + i+ "! ="  );
+                for(int j = 1; j <= i; j++){
+                    longie *= j;
+                    System.out.print(" " + (j));
+                    if(longie <= 0){
+                        System.out.println("Broke at:" + i);
+                        breakNum = i;
+                        return i;
+                    }
+                }
+                System.out.print(" = " + longie);
+            }
+            return factorialBreakingPoint(n+1);
+
+        } catch (NumberFormatException e){
+            System.out.print("Bad " + longie);
+            return -1;
+        }
+    }
 
 
-           System.out.println("The number entered is: " + validInt);
-           if(validInt >= min && validInt <= max) {
-               return validInt;
-           }
-           return getInteger(min,max);
-       }
 
 
+
+
+
+
+
+//END OF JAVA
 }
