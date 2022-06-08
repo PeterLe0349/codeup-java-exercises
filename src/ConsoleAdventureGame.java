@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class ConsoleAdventureGame {
+    public static String heroName;
+
     public static void main(String[] args){
         displayStartScreen();
         startMenu();
@@ -39,12 +41,13 @@ public class ConsoleAdventureGame {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter your name: ");
         String userInput = scanner.nextLine();
-        System.out.println("Hello " + userInput + ".");
+        heroName = userInput;
+        System.out.println("Hello " + heroName + ".");
         int heroHealth = 100;
-        int heroAttack = 10;
+        int heroAttack = makeRandom(1,20);
         int heroPotionCount = 3;
         int enemyHealth = 100;
-        int enemyAttack = 10;
+        int enemyAttack = makeRandom(1,20);
         int enemyPotionCount = 3;
         System.out.println("Your STATS ");
         displayStats(heroHealth,heroAttack, heroPotionCount);
@@ -103,7 +106,6 @@ public class ConsoleAdventureGame {
                     break;
                 }
             } else if(choice.equals("drink potion")){
-                System.out.println("You chose to drink a potion");
                 if(heroPotionCount > 0){
                     heroPotionCount--;
                     heroHealth += 20;
@@ -114,14 +116,14 @@ public class ConsoleAdventureGame {
             }
             displayBothStats(heroHealth, heroAttack, heroPotionCount, enemyHealth, enemyAttack, enemyPotionCount);
             choice = chooseEvent();
-        }while(!choice.equals("run"));
+        }while(!choice.equals("stop"));
     }
 
     public static String chooseEvent() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("What do you want to do (attack/drink potion/run)?  ");
         String choice = scanner.nextLine();
-        if (choice.equals("attack") || choice.equals("drink potion") || choice.equals("run")) {
+        if (choice.equals("attack") || choice.equals("drink potion") || choice.equals("run") || (choice.equals("stop") )) {
             System.out.println("You chose to: " + choice);
             return choice;
         }else {
@@ -132,7 +134,7 @@ public class ConsoleAdventureGame {
 
 
     public static void displayBothStats(int heroHealth, int heroAttack, int heroPotionCount, int enemyHealth, int enemyAttack, int enemyPotion){
-        System.out.format("%-10s|" + "%-10s|" + "%-10s%n", "Stats", "You", "Enemy");
+        System.out.format("%-10s|" + "%-10s|" + "%-10s%n", "Stats", heroName, "Enemy");
         System.out.format("%-10s|" + "%-10s|" + "%-10s%n", "------", "******", "******");
         System.out.format("%-10s|" + "%-10s|" + "%-10s%n", "Health", heroHealth, enemyHealth);
         System.out.format("%-10s|" + "%-10s|" + "%-10s%n", "Atk", heroAttack, enemyAttack);
