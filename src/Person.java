@@ -1,25 +1,32 @@
 class Person {
-    public static long worldPopulation = 7_500_000_000L; // class property
-    public String name; // instance property
+    private String name;
 
-    public static void main(String[] args) {
-//        Person theBestDrummerAlive = new Person();
-//        theBestDrummerAlive.name = "Neil Peart";
-
-//        Person.worldPopulation += 1; // accessing a static property
-
-//        System.out.println(Person.worldPopulation); // 7500000001
-
-        // technically this will work, but it is usually better to reference
-        // static properties through the class, not instances
-//        System.out.println(theBestDrummerAlive.worldPopulation); // 7500000001
-
-        // DONT DO THIS, it will not compile
-//        System.out.println(Person.name);
+    public Person(String name){
+        this.name  = name;
     }
 
-    public String sayName(){
-        return "Hello, I'm " + name;
+    public static void main(String[] args){
+        Person me = new Person("Peter");
+        System.out.println(me.getName());
+        me.setName("Petrus");
+        System.out.println(me.getName());
+        me.sayHello();
+
+
+    }
+
+    public String getName(){
+//TODO: return the person's name
+        return name;
+    }
+
+    public void setName(String name){
+//TODO: change the name field to the passed value
+        this.name = name;
+    }
+    public void sayHello(){
+//TODO: print a message to the console using the person's name
+        System.out.println("Hello I'm " + name);
     }
 
 }
