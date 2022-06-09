@@ -1,4 +1,5 @@
 public class HelloWorld {
+
     public static void main(String[] args) {
 //        System.out.println("Hello, World from Peter!");
 //        System.out.print("Hello,");
@@ -17,6 +18,8 @@ public class HelloWorld {
 //        String myString = "3.1459";
 //        System.out.println(myString);
 //        float myNumber = 3;
+//        long myNumber = 123L;
+//        System.out.println(myNumber);
 //        System.out.println(myNumber);
 //        int x = 5;
 //        System.out.println(x++);
@@ -26,11 +29,12 @@ public class HelloWorld {
 //        System.out.println(y);
 
 //        int class = 2;
-
+//         #12
 //        String theNumberThree = "three";
 //        Object o = theNumberThree;
 //        int three = (int) o;
 //        int three = (int) "three";
+        //13
 //        int x = 4;
 ////        x = x + 5;
 //        x += 5;
@@ -48,14 +52,19 @@ public class HelloWorld {
 //        y -= x;
 //        System.out.println(y);
 //can't compile if beyond limit
+        //14 numbers beyond limit become negative
 //        short shortie = 4000000;
-        short shortie = 8000;
-        System.out.println(shortie);
-        shortie *= shortie;
-        //print incorrect answer if beyond range
-        System.out.println(shortie);
+//        short shortie = 8000;
+//        System.out.println(shortie);
+//        shortie *= shortie;
+//        //print incorrect answer if beyond range
+//        System.out.println(shortie);
+//        String numie = "123";
+//        System.out.printf("Hi %-10s", numie );
 
-
+long tinyNum = 123123232;
+byte smallNum = (byte) tinyNum;
+        System.out.println(smallNum);
 
     }
 }
