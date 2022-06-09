@@ -54,6 +54,7 @@ public class ConsoleAdventureGame {
         enemyEncounter();
         System.out.println("Odie's STATS:");
         displayStats(enemyHealth,enemyAttack,enemyPotionCount);
+        displayBothStats(heroHealth, heroAttack, heroPotionCount, enemyHealth, enemyAttack, enemyPotionCount);
         System.out.print("Do you want to change stats? [y/N]");
         String statChoice = scanner.nextLine();
         if(statChoice.equals("y")){
