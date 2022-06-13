@@ -12,8 +12,8 @@ public class CircleApp {
         totalCircles++;
         int radius = inputter.getInt();
         Circle circ = new Circle(radius);
-        System.out.println(circ.getArea());
-        System.out.println(circ.getCircumference());
+        System.out.println("The area is: " + circ.getArea());
+        System.out.println("The circumference is: " + circ.getCircumference());
         printTotalCircles();
         boolean choice = inputter.yesNo();
         while(choice){
@@ -21,8 +21,8 @@ public class CircleApp {
             totalCircles++;
             radius = inputter.getInt();
             circ = new Circle(radius);
-            System.out.println(circ.getArea());
-            System.out.println(circ.getCircumference());
+            System.out.println("The area is: " + circ.getArea());
+            System.out.println("The circumference is: " + circ.getCircumference());
             printTotalCircles();
             System.out.println("Do you want to continue?");
             choice = inputter.yesNo();

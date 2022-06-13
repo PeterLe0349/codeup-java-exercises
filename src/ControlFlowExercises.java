@@ -32,7 +32,6 @@ public class ControlFlowExercises {
 //            System.out.println(startCount*startCount);
 ////            int b = startCount;
 //            startCount = startCount * startCount;
-////        startCount++;
 //        }while(startCount < 1000000);
 //        int a = 4;
 //        int b = a;
