@@ -1,7 +1,10 @@
+import util.Input;
+
 import java.util.Scanner;
 import java.util.Random;
 
 public class MethodsExercises {
+    public static Input inputter = new Input();
     public static void main(String[] args){
 
 //        System.out.println(addNumbers(23.234, 11.11));
@@ -18,8 +21,8 @@ public class MethodsExercises {
 //        int breakNum = factorialBreakingPoint(1);
 //        System.out.println("Breaking point is: " + breakNum);
 //        getInteger(1, 10);
-//        factorial();
-        rollDice();
+        factorial();
+//        rollDice();
 
 
     }
@@ -81,25 +84,29 @@ public class MethodsExercises {
         }
     }
 //3 factorial
-    public static long factorial(){
-        try{
-            long num = getInteger(1,factorialBreakingPoint(9));
-            long product = 1;
-            long sum = 1;
-            for(int i = 1; i <= num; i++){
-                sum = 1;
-                System.out.print("\n" + i+ "! ="  );
-                for(int j = 1; j <= i; j++){
-                    sum *= j;
-                    System.out.print(" " + (j));
+    public static void factorial(){
+        boolean continueDoing = true;
+        do {
+            try {
+                long num = getInteger(1, factorialBreakingPoint(9));
+                long product = 1;
+                long sum = 1;
+                for (int i = 1; i <= num; i++) {
+                    sum = 1;
+                    System.out.print("\n" + i + "! =");
+                    for (int j = 1; j <= i; j++) {
+                        sum *= j;
+                        System.out.print(" " + (j));
+                    }
+                    System.out.print(" = " + sum);
                 }
-                System.out.print(" = " + sum);
+                System.out.println("\nDo you want to continue? y/n?");
+                continueDoing = inputter.yesNo();
+            } catch (NumberFormatException e) {
+                System.out.println("Too big!!: " + e);
             }
-            return product;
-        } catch(NumberFormatException e){
-            System.out.println("Too big!!: " + e );
-            return -1;
-        }
+
+        }while(continueDoing);
 
     }
 
