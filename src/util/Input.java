@@ -23,9 +23,10 @@ public class Input {
         if(input.equals("yes") || input.equals("y")){
             return true;
         }
-        else{
+        else if(input.equals("no") || input.equals("n")){
             return false;
-        }
+        }else
+            return yesNo();
     }
 
     public int getInt(int min, int max) {
