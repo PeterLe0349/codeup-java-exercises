@@ -20,12 +20,11 @@ public class MoviesApplication {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = input.getInt();
-            input.getInput();
             if(choice == 1) viewAllMovies();
-            else if(choice ==2) viewAllAnimated();
-            else if(choice ==3) viewAllDrama();
-            else if(choice ==4) viewAllHorror();
-            else if(choice ==5) viewAllScifi();
+            else if(choice ==2) viewByGenre("animated");
+            else if(choice ==3) viewByGenre("drama");
+            else if(choice ==4) viewByGenre("horror");
+            else if(choice ==5) viewByGenre("scifi");
             else if(choice ==6) {
                 System.out.println("Enter new movie name: ");
                 String name = input.getInput();
@@ -87,6 +86,14 @@ public class MoviesApplication {
     public static void viewAllScifi(){
         for(Movie movie: movies){
             if(movie.getCategory().equals("scifi")){
+                System.out.println(movie.getName() + " -- " + movie.getCategory());
+            }
+        }
+    }
+
+    public static void viewByGenre(String genre){
+        for(Movie movie: movies){
+            if(movie.getCategory().equals(genre)){
                 System.out.println(movie.getName() + " -- " + movie.getCategory());
             }
         }
