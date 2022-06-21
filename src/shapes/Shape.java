@@ -1,4 +1,4 @@
 package shapes;
 
-public class Shape {
+public abstract class Shape {
 }

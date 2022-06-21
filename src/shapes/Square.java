@@ -23,11 +23,13 @@ public class Square extends Quadrilateral implements Measurable{
 
     public void setLength(long length) {
         this.length = length;
+        this.width = length;
 
     }
 
     public void setWidth(long length) {
         this.width = length;
+        this.length = length;
 
     }
 }
