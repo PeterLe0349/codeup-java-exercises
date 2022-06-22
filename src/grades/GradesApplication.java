@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 public class GradesApplication {
-    public static HashMap<String, Student> students;
+            public static HashMap<String, Student> students;
 
     public static void main(String[] args) {
         String[] studentGitNames = {"fierem", "zoro", "luffy", "chef"};
