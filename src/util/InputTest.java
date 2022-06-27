@@ -19,9 +19,11 @@ public class InputTest {
 //            int binn = tester.getBinary();
 //        System.out.println(binn);
 //        int hex = tester.getHex();
-//        System.out.println(hex);
-         int num = tester.getInt(1,5);
-        System.out.println(num);
+////        System.out.println(hex);
+//         int num = tester.getInt(1,5);
+//        System.out.println(num);
+        double doub = tester.getDouble(10.0, 100.11);
+        System.out.println(doub);
 
     }
 }

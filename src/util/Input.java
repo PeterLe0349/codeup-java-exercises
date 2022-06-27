@@ -76,26 +76,21 @@ public class Input {
     }
 
     public double getDouble(double min, double max) {
-        double validDoub = 0;
+        String input;
+        double validInt = 0;
         System.out.print("Enter a number between " + min + " and " + max + ": ");
-        try{
-            if (scanner.hasNextDouble()) {
-                validDoub = scanner.nextDouble();
-    //            System.out.println(validDoub);
-                if (validDoub >= min && validDoub <= max) {
-                    return validDoub;
-                } else {
-                    System.out.println("Invalid input beyond range!");
-                    return getDouble(min, max);
-                }
+        try {
+            input = scanner.nextLine();
+            validInt = Double.valueOf(input);
+            if (validInt >= min && validInt <= max) {
+                return validInt;
             } else {
-                System.out.println("Invalid input type!");
+                System.out.println("Invalid input beyond range!");
                 return getDouble(min, max);
             }
-        }
-        catch(NumberFormatException e){
+        } catch(NumberFormatException e){
             System.out.println(e);
-            System.out.println("Not a valid double number!");
+            System.out.println("Not a valid integer!");
             return getDouble(min, max);
         }
     }
