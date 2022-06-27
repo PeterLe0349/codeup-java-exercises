@@ -44,6 +44,7 @@ public class Input {
             }
         } catch(NumberFormatException e){
             System.out.println(e);
+            //printstacktrace instead
             System.out.println("Not a valid integer!");
             return getInt(min, max);
         }
